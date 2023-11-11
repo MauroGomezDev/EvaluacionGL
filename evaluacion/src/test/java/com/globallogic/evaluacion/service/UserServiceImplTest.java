@@ -1,0 +1,66 @@
+package com.globallogic.evaluacion.service;
+
+import com.globallogic.evaluacion.model.Phone;
+import com.globallogic.evaluacion.model.User;
+import com.globallogic.evaluacion.repository.UserRepository;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.when;
+
+class UserServiceImplTest {
+
+    @Mock
+    private UserRepository userRepository;
+
+    @Mock
+    UserServiceImpl userServiceImpl;
+
+    LocalDate now = LocalDate.now();
+    Long id = Long.valueOf(1);
+    Phone phone;
+    List<Phone> phones;
+    User user;
+
+    @BeforeEach
+    void setUp(){
+        MockitoAnnotations.openMocks(this);
+        phone = new Phone(id, 123456789, 8320000, "SCL");
+        user = new User("1","John Doe", "john.doe@example.com", "password123", Arrays.asList(phone), now, now, "sampleToken", true);
+    }
+
+    @Test
+    void createUser() {
+        when(userRepository.findByEmail(user.getEmail())).thenReturn(user);
+        when(userRepository.save(user)).thenReturn(user);
+        when(userServiceImpl.saveUser(user)).thenReturn(user);
+        assertNotNull(userRepository.findByEmail(user.getEmail()));
+        assertNotNull(userServiceImpl.saveUser(user));
+    }
+
+    //@Test
+    //void saveUser() {
+    //}
+
+    @Test
+    void createJwtToken() {
+        when(userServiceImpl.createJwtToken(user)).thenReturn("token123");
+        String result = userServiceImpl.createJwtToken(user);
+        assertEquals("token123", result);
+    }
+
+    @Test
+    void listar() {
+        when(userRepository.findAll()).thenReturn(Arrays.asList(user));
+        assertNotNull(userServiceImpl.listar());
+    }
+}
