@@ -9,7 +9,7 @@ NOTA: El requerimiento fue crear la aplicacion en java 8, sin embargo me fue imp
 
 El proyecto base fue creado en el sitio https://start.spring.io/
 
-## Funcionalidadea
+## Funcionalidad
 Proporciona funcionalidades para la creación y consulta de usuarios, con validación de datos y manejo de excepciones. 
 El servicio persiste los datos en una base de datos H2 y utiliza tokens JWT para la posterior autenticación.
 
