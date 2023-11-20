@@ -5,8 +5,6 @@ Repositorio para evaluacion empresa Global Logic
 
 Este proyecto de microservicio fue desarrollado para aplicar a una vacante de desarrollador para la empresa Global Logic.
 
-NOTA: El requerimiento fue crear la aplicacion en java 8, sin embargo me fue imposible resolver algunos errores de versiones que me estaban tomando demasiado tiempo, lo que me llevo a tomar la desicion de seguir con Java 17. 
-
 El proyecto base fue creado en el sitio https://start.spring.io/
 
 ## Funcionalidad
@@ -15,8 +13,8 @@ El servicio persiste los datos en una base de datos H2 y utiliza tokens JWT para
 
 ## Requisitos
 
-- Java 17
-- Gradle
+- Java 8
+- Gradle 7.4
 - Springboot 3.1.5
 - Dependencias de Spring Boot (Spring Web, Spring Data JPA, Spring Security lombok, jaxb, jackson, etc)
 
@@ -24,7 +22,7 @@ El servicio persiste los datos en una base de datos H2 y utiliza tokens JWT para
 
 1. Clona el repositorio desde [GitHub](https://github.com/tu-usuario/tu-repo) o descarga el código fuente.
 
-2. Asegúrate de tener Java 17 instalado en tu sistema.
+2. Asegúrate de tener Java 8 instalado en tu sistema.
 
 3. Edita el archivo `application.properties` para configurar la base de datos y otras propiedades según tus necesidades.
 
