@@ -108,9 +108,6 @@ public class UserServiceImpl implements UserService{
     public List<User> listar() {
         List<User> users = userRepository.findAll();
         if (users != null) {
-//            return users.stream()
-//                    .sorted()
-//                    .collect(Collectors.toList());
             return users.stream()
                     .sorted((user1, user2) -> {
                         return user1.getName().compareTo(user2.getName());
